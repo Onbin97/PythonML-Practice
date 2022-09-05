@@ -16,7 +16,10 @@ print(X, len(X))
 print(X_train, len(X_train))
 print(X_test, len(X_test))
 
-sr = SGDRegressor()
+sr = SGDRegressor(max_iter=1000, eta0=1e-4, random_state=0, verbose=1)
+# max_iter: 훈련 세트 반복 횟수 (Epoch 횟수)
+# eta0    : 학습률 (learning rate)
+
 sr.fit(X_train, y_train)
 
 plt.scatter(X_train, y_train, color='blue')
