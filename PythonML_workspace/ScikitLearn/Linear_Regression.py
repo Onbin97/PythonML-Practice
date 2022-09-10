@@ -1,4 +1,4 @@
-# 공부 시간에 따른 시험 점수
+# 공부 시간에 따른 시험 점수 
 
 import matplotlib.pyplot as plt
 import pandas as pd

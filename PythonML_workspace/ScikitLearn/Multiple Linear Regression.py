@@ -7,6 +7,7 @@ from sklearn.compose import  ColumnTransformer
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
+from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 
 dataset = pd.read_csv('MultipleLinearRegressionData.csv')
 
@@ -38,8 +39,26 @@ print(y_pred)
 
 print(y_test)
 
-print(reg.coef_)
+print(reg.coef_) # cafe가 공부가 가장 잘됨.
 print(reg.intercept_)
 
 print(reg.score(X_train, y_train))
 print(reg.score(X_test, y_test))
+
+# 다양한 평가 지표 (회귀 모델)
+# MAE (Mean Absolute Error)     : (실제 값과 예측 값) 차이의 절대값
+# MSE (Mean Squared Error)      : 차이의 제곱
+# RMSE (Root Mean Squared Error): 차이의 제곱의 루트
+# R2                            : 결정 계수 (1에 가까울수록 잘만들어진 회귀 모델)
+
+# MAE
+print(mean_absolute_error(y_test, y_pred))
+
+# MSE
+print(mean_squared_error(y_test, y_pred))
+
+# RMSE
+print(mean_squared_error(y_test, y_pred, squared=False))
+
+# R2
+print(r2_score(y_test, y_pred))
